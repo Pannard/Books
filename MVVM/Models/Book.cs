@@ -21,5 +21,8 @@ namespace Books.MVVM.Models
         public int Encours { get; set; }
         public int Whishlist { get; set; }
         public int MesLivres { get; set; }
+
+        public int ALire { get; set; }
+       
     }
 }

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\user\Documents\GitHub\Books\Books\App.xaml
-51188451193
+91237542143
 
-121992109573
+16929228116
 2041567703784
-MVVM\Views\BibliothequesPage.xaml;MVVM\Views\ChercherPage.xaml;MVVM\Views\HomePage.xaml;MVVM\Views\InfoPage.xaml;MVVM\Views\MesLivresPage.xaml;
+MVVM\Views\ALirePage.xaml;MVVM\Views\BibliothequesPage.xaml;MVVM\Views\ChercherPage.xaml;MVVM\Views\EnCoursPage.xaml;MVVM\Views\HomePage.xaml;MVVM\Views\InfoPage.xaml;MVVM\Views\LuPage.xaml;MVVM\Views\MesLivresPage.xaml;MVVM\Views\Wishlist.xaml;
 
-False
+True
 

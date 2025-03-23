@@ -24,10 +24,10 @@
 
 
         <Button Content="Mes Livres" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="500"  Margin="10 0 10 200" Click="MesLivresClickPage"/>
-        <Button Content="Lu" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="50" Margin="10 0 300 0"  />
-        <Button Content="A lire" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200"  Margin="300 0 10 0" />
-        <Button Content="En cours" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="10 150 300 0"  />
-        <Button Content="Wishlist" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="300 150 10 0" />
+        <Button Content="Lu" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Width="200" Height="50" Margin="10 0 300 0" Click="LuPage" />
+        <Button Content="A lire" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200"  Margin="300 0 10 0" Click="ALirePage" />
+        <Button Content="En cours" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="10 150 300 0" Click="EnCoursPage" />
+        <Button Content="Wishlist" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="300 150 10 0" Click="WishlistPage"/>
 
 
 

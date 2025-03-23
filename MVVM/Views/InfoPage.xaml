@@ -30,9 +30,11 @@
             <Button Content="note" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="150" Margin="0 175 0 200" />
             <Button Content="retour"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="50" Margin="0 0 400 650"  Click="BackPage"/>
             <Button Content="Lu" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 350 200"  />
-            <Button Content="A lire"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 125 200" />
+        <Button Content="A lire"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 125 200" Command="{Binding OnClickToReadSearch}"/>
             <Button Content="En Cours"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="125 300 0 200" />
-            <Button Content="WishList" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="350 300 0 200" />
+             <Button Content="WishList" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="350 300 0 200" />
+       
+            
             
 
         </Grid>

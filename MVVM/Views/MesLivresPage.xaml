@@ -9,7 +9,7 @@
       Title="MesLivresPage">
 
     <Grid>
-        <DataGrid Name="AllMyBooks"  Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding MesLivresBooks}" Margin="10 0 10 0" IsReadOnly="True" >
+        <DataGrid Name="AllMyBooks"  Grid.Row="1" Grid.RowSpan="2" AutoGenerateColumns="False" Grid.Column="0" Grid.ColumnSpan="2" ItemsSource="{Binding MesLivresBooks}" SelectedItem="{Binding SelectedBook, Mode=TwoWay}" Margin="10 0 10 0" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" />
                 <DataGridTextColumn Header="Auteur" Binding="{Binding Auteur}" />

@@ -7,10 +7,16 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\Views\ALirePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\Views\BibliothequesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\ChercherPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\EnCoursPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\HomePage.xaml.cs">
@@ -19,15 +25,27 @@
     <Compile Update="MVVM\Views\InfoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\Views\LuPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\Views\MesLivresPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\Wishlist.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="MVVM\Views\ALirePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\Views\BibliothequesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\ChercherPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\EnCoursPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\HomePage.xaml">
@@ -36,7 +54,13 @@
     <Page Update="MVVM\Views\InfoPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="MVVM\Views\LuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MVVM\Views\MesLivresPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\Wishlist.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

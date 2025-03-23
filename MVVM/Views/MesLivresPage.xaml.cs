@@ -27,6 +27,7 @@ namespace Books.MVVM.Views
             InitializeComponent();
             this.DataContext = new MainViewModel();
             infoPage = new InfoPage();
+            
         }
 
         private void InfosPage(object sender, RoutedEventArgs e)

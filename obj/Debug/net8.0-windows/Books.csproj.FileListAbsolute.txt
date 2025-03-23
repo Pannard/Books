@@ -44,3 +44,11 @@ C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\M
 C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\InfoPage.g.cs
 C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\InfoPage.baml
 C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\Books.sourcelink.json
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\ALirePage.g.cs
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\EnCoursPage.g.cs
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\LuPage.g.cs
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\Wishlist.g.cs
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\ALirePage.baml
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\EnCoursPage.baml
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\LuPage.baml
+C:\Users\user\Documents\GitHub\Books\Books\obj\Debug\net8.0-windows\MVVM\Views\Wishlist.baml
