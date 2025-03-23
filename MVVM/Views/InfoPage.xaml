@@ -9,29 +9,31 @@
       Title="InfoPage">
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
 
         <Label  Content="{Binding SelectedBook.Titre}"  Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 0 0 200"  />
-        <Label  Content="Prix : "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 140 0 200"/>
-        <Label  Content="Edition, nbr pages, année "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 40 0 200"/>
-        <Label  Content="Genre "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 80 0 200"/>
-        <Button Content="{Binding SelectedBook.Auteur}"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="150" Margin="0 0 300 200" />
-        <Button Content="+ Ajouter A Une Etagere"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="150" Margin="0 100 300 200" />
-        <Button Content="note" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="150" Margin="0 175 0 200" />
-        <Button Content="retour"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="50" Margin="0 0 400 650"  Click="BackPage"/>
-        <Button Content="Lu" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 350 200"  />
-        <Button Content="A lire"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 125 200" />
-        <Button Content="En Cours"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="125 300 0 200" />
-        <Button Content="WishList" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="350 300 0 200" />
+            <Label  Content="Prix : "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 140 0 200"/>
+            <Label  Content="Edition, nbr pages, année "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 40 0 200"/>
+            <Label  Content="Genre "   Grid.RowSpan="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="200" Margin="50 80 0 200"/>
+            <Button Content=""  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="150" Margin="0 0 300 200" />
+            <Button Content="+ Ajouter A Une Etagere"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="150" Margin="0 100 300 200" />
+            <Button Content="note" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="40" Width="150" Margin="0 175 0 200" />
+            <Button Content="retour"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="25" Width="50" Margin="0 0 400 650"  Click="BackPage"/>
+            <Button Content="Lu" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 350 200"  />
+            <Button Content="A lire"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="0 300 125 200" />
+            <Button Content="En Cours"  Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="125 300 0 200" />
+            <Button Content="WishList" Grid.RowSpan="3" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Height="50" Width="100" Margin="350 300 0 200" />
+            
 
-    </Grid>
+        </Grid>
 </Page>
