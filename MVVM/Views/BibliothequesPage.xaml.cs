@@ -40,16 +40,15 @@ namespace Books.MVVM.Views
         }
         private void MesLivresClickPage(object sender, RoutedEventArgs e)
         {
-            HomePage.Instance.Page.Navigate(mesLivresPage);
+            HomePage.Instance.Page.Navigate(new MesLivresPage());
         }
         private void ALirePage(object sender, RoutedEventArgs e)
         {
-            HomePage.Instance.Page.Navigate(aLirePage);
-            
+            HomePage.Instance.Page.Navigate(new ALirePage());
         }
         private void EnCoursPage(object sender, RoutedEventArgs e)
         {
-            HomePage.Instance.Page.Navigate(enCoursPage);
+            HomePage.Instance.Page.Navigate(new EnCoursPage());
         }
         private void LuPage(object sender, RoutedEventArgs e)
         {

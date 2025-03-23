@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Shapes;
@@ -11,9 +12,22 @@ namespace Books.MVVM.ViewModels
 {
 
     
-    public class MainViewModel : ObservableObject
+    public partial class MainViewModel : ObservableObject
     {
         #region variable
+
+        public string BooksFilter 
+        { 
+            get => booksFilter;
+            set
+            {
+                SetProperty(ref booksFilter, value);
+                OnPropertyChanged(nameof(Books));
+                Debug.WriteLine("Filter changed");
+            }
+        }
+
+
         private Book selectedBook;
         public Book SelectedBook
 
@@ -22,16 +36,19 @@ namespace Books.MVVM.ViewModels
             set
             {
                 SetProperty(ref selectedBook, value);
-                CanAddBook = (value != null && value.MesLivres == 0);
-                CanAddToReadBook = (value != null && value.ALire == 0);
+                CanAddBook = (value != null && !value.MesLivres);
+                CanAddToReadBook = (value != null && !value.ALire);
             }
         }
 
-       
+        public void OnObjectUpdated(string propertyName = "") => OnPropertyChanged(propertyName);
 
 
-        public ObservableCollection<Book> Books { get; set; }
-        public ObservableCollection<Book> MesLivresBooks { get; set; }
+        public ObservableCollection<Book> Books { get => LoadData(); }
+        public ObservableCollection<Book> MesLivresBooks 
+        {
+            get => LoadMesLivresData();
+        }
 
         public ObservableCollection<Book> ALireBooks { get; set; }
 
@@ -52,10 +69,8 @@ namespace Books.MVVM.ViewModels
             get => canAddBook;
             set
             {
-                if (SetProperty(ref canAddBook, value))
-                {
-                    OnClickSearch.NotifyCanExecuteChanged();
-                }
+                SetProperty(ref canAddBook, value);
+                OnClickSearch.NotifyCanExecuteChanged();
             }
         }
 
@@ -72,15 +87,16 @@ namespace Books.MVVM.ViewModels
 
 
         private bool canAddToReadBook = false;
+        private ObservableCollection<Book> mesLivresBooks;
+        private string booksFilter;
+
         public bool CanAddToReadBook
         {
             get => canAddToReadBook;
             set
             {
-                if (SetProperty(ref canAddToReadBook, value))
-                {
-                    OnClickToReadSearch.NotifyCanExecuteChanged();
-                }
+                SetProperty(ref canAddToReadBook, value);
+                OnClickToReadSearch.NotifyCanExecuteChanged();
             }
         }
 
@@ -103,297 +119,23 @@ namespace Books.MVVM.ViewModels
         public RelayCommand OnClickToReadSearch { get; }
         public RelayCommand OnClickSearch { get; }
 
-        private void OnClickSearchCommand()
-        {
-            if (SelectedBook == null) return;
-
-            try
-            {
-                using (var connection = new SQLiteConnection("Data Source=..\\..\\..\\database.db"))
-                {
-                    connection.Open();
-
-                    var command = connection.CreateCommand();
-                    command.CommandText = "UPDATE Livre SET MesLivres = 1 WHERE id_livre = @id";
-                    command.Parameters.AddWithValue("@id", SelectedBook.Id);
-
-                    command.ExecuteNonQuery();
-                }
-
-                // Mettre à jour localement
-                SelectedBook.MesLivres = 1;
-                LoadMesLivresData(); // Recharger la liste
-                CanAddBook = false;  // Désactiver le bouton
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur lors de la mise à jour : {ex.Message}");
-            }
-        }
-
-        private void OnClickToReadSearchCommand()
-        {
-            if (SelectedBook == null) return;
-
-            try
-            {
-                using (var connection = new SQLiteConnection("Data Source=..\\..\\..\\database.db"))
-                {
-                    connection.Open();
-
-                    var command = connection.CreateCommand();
-                    command.CommandText = "UPDATE Livre SET ALire = 1 WHERE id_livre = @id";
-                    command.Parameters.AddWithValue("@id", SelectedBook.Id);
-
-                    command.ExecuteNonQuery();
-                }
-
-                // Mettre à jour localement
-                SelectedBook.ALire = 1;
-                LoadALireData(); // Recharger la liste
-                CanAddToReadBook = false;  // Désactiver le bouton
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur lors de la mise à jour : {ex.Message}");
-            }
-        }
+        
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
 
         #region Constructor
 
 
         public MainViewModel()
         {
-            Books = new ObservableCollection<Book>();
             AddedBooks = new ObservableCollection<Book>();
             toReadBooks = new ObservableCollection<Book>();
-            MesLivresBooks = new ObservableCollection<Book>();
             ALireBooks = new ObservableCollection<Book>();
             OnClickSearch = new RelayCommand(OnClickSearchCommand, CanExecuteAddBook);
             OnClickToReadSearch = new RelayCommand(OnClickToReadSearchCommand, CanExecuteAddToReadBook);
-            LoadData();
-            LoadMesLivresData();
+
             LoadALireData();
         }
         #endregion
-        private void LoadData()
-        {
-            try
-            {
-                using (var connection = new SQLiteConnection("Data Source=..\\..\\..\\database.db"))
-                {
-                    connection.Open();
-
-                    var command = connection.CreateCommand();
-                    command.CommandText =
-                    @"
-                      
-                SELECT
-                Livre.id_livre AS LivreId,
-                Livre.titre AS LivreTitre, 
-                Auteur.Nom AS AuteurNom, 
-                Auteur.Prenom AS AuteurPrenom,
-                Genre.nom AS GenreNom, 
-                Edition.nom AS EditionNom,
-                Edition.annee AS EditionAnnee,
-                Livre.prix AS prix,
-                Livre.page AS page,
-                Livre.Lu AS Lu,
-                Livre.Encours AS Encours,
-                Livre.Whishlist AS Whishlist,
-                Livre.MesLivres AS MesLivres,
-                Livre.Alire AS ALire,
-                Livre.Note AS Note
-                FROM Livre
-                JOIN Auteur ON Livre.id_Auteur = Auteur.id_Auteur
-                JOIN Genre ON Livre.id_genre = Genre.id_genre
-                JOIN Edition ON Livre.id_edition = Edition.id_edition";
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string auteurComplet = $"{reader["AuteurPrenom"]} {reader["AuteurNom"]}";
-                            string editionComplet = $"{reader["EditionNom"]} {reader["EditionAnnee"]}";
-
-                            Books.Add(new Book
-                            {
-                                Id = Convert.ToInt32(reader["LivreId"]),
-                                Titre = reader["LivreTitre"].ToString(),
-                                Auteur = auteurComplet,
-                                Genre = reader["GenreNom"].ToString(),
-                                Edition = editionComplet,
-                                Note = reader["Note"] != DBNull.Value ? Convert.ToDouble(reader["Note"]) : (double?)null,
-                                Prix = reader["prix"] != DBNull.Value ? Convert.ToSingle(reader["prix"]) : 0f,
-                                Page = reader["page"] != DBNull.Value ? Convert.ToInt32(reader["page"]) : 0,
-                                Lu = Convert.ToInt32(reader["Lu"]),
-                                Encours = Convert.ToInt32(reader["Encours"]),
-                                Whishlist = Convert.ToInt32(reader["Whishlist"]),
-                                MesLivres = Convert.ToInt32(reader["MesLivres"]),
-                                ALire = Convert.ToInt32(reader["ALire"])
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Gérer l'exception et éventuellement afficher un message d'erreur
-                Console.WriteLine($"Erreur lors du chargement des données : {ex.Message}");
-            }
-        }
-
-
-
-
-        private void LoadMesLivresData()
-        {
-            try
-            {
-                MesLivresBooks.Clear(); // On vide la liste pour éviter les doublons
-
-                using (var connection = new SQLiteConnection("Data Source=..\\..\\..\\database.db"))
-                {
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText =
-                    @"
-            SELECT 
-                Livre.id_livre AS LivreId,
-                Livre.titre AS LivreTitre, 
-                Auteur.Nom AS AuteurNom, 
-                Auteur.Prenom AS AuteurPrenom,
-                Genre.nom AS GenreNom, 
-                Edition.nom AS EditionNom,
-                Edition.annee AS EditionAnnee,
-                Livre.prix AS prix,
-                Livre.page AS page,
-                Livre.Lu AS Lu,
-                Livre.Encours AS Encours,
-                Livre.Whishlist AS Whishlist,
-                Livre.MesLivres AS MesLivres,
-                Livre.Alire AS ALire,
-                Livre.Note AS Note 
-            FROM Livre
-            JOIN Auteur ON Livre.id_Auteur = Auteur.id_Auteur
-            JOIN Genre ON Livre.id_genre = Genre.id_genre
-            JOIN Edition ON Livre.id_edition = Edition.id_edition
-            WHERE Livre.MesLivres = 1"; // Sélectionne seulement les livres dans "Mes Livres"
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string auteurComplet = $"{reader["AuteurPrenom"]} {reader["AuteurNom"]}";
-                            string editionComplet = $"{reader["EditionNom"]} {reader["EditionAnnee"]}";
-
-                            MesLivresBooks.Add(new Book
-                            {
-                                Id = Convert.ToInt32(reader["LivreId"]),
-                                Titre = reader["LivreTitre"].ToString(),
-                                Auteur = auteurComplet,
-                                Genre = reader["GenreNom"].ToString(),
-                                Edition = editionComplet,
-                                Note = reader["Note"] != DBNull.Value ? Convert.ToDouble(reader["Note"]) : (double?)null,
-                                Prix = reader["prix"] != DBNull.Value ? Convert.ToSingle(reader["prix"]) : 0f,
-                                Page = reader["page"] != DBNull.Value ? Convert.ToInt32(reader["page"]) : 0,
-                                Lu = Convert.ToInt32(reader["Lu"]),
-                                Encours = Convert.ToInt32(reader["Encours"]),
-                                Whishlist = Convert.ToInt32(reader["Whishlist"]),
-                                MesLivres = Convert.ToInt32(reader["MesLivres"]),
-                                ALire = Convert.ToInt32(reader["ALire"])
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur lors du chargement des données : {ex.Message}");
-            }
-        }
-
-        private void LoadALireData()
-        {
-            try
-            {
-                ALireBooks.Clear(); // On vide la liste pour éviter les doublons
-
-                using (var connection = new SQLiteConnection("Data Source=..\\..\\..\\database.db"))
-                {
-                    connection.Open();
-                    var command = connection.CreateCommand();
-                    command.CommandText =
-                    @"
-            SELECT 
-                Livre.id_livre AS LivreId,
-                Livre.titre AS LivreTitre, 
-                Auteur.Nom AS AuteurNom, 
-                Auteur.Prenom AS AuteurPrenom,
-                Genre.nom AS GenreNom, 
-                Edition.nom AS EditionNom,
-                Edition.annee AS EditionAnnee,
-                Livre.prix AS prix,
-                Livre.page AS page,
-                Livre.Lu AS Lu,
-                Livre.Encours AS Encours,
-                Livre.Whishlist AS Whishlist,
-                Livre.MesLivres AS MesLivres,
-                Livre.Alire AS ALire,
-                Livre.Note AS Note 
-            FROM Livre
-            JOIN Auteur ON Livre.id_Auteur = Auteur.id_Auteur
-            JOIN Genre ON Livre.id_genre = Genre.id_genre
-            JOIN Edition ON Livre.id_edition = Edition.id_edition
-            WHERE Livre.ALire = 1"; // Sélectionne seulement les livres dans "Mes Livres"
-
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            string auteurComplet = $"{reader["AuteurPrenom"]} {reader["AuteurNom"]}";
-                            string editionComplet = $"{reader["EditionNom"]} {reader["EditionAnnee"]}";
-
-                            ALireBooks.Add(new Book
-                            {
-                                Id = Convert.ToInt32(reader["LivreId"]),
-                                Titre = reader["LivreTitre"].ToString(),
-                                Auteur = auteurComplet,
-                                Genre = reader["GenreNom"].ToString(),
-                                Edition = editionComplet,
-                                Note = reader["Note"] != DBNull.Value ? Convert.ToDouble(reader["Note"]) : (double?)null,
-                                Prix = reader["prix"] != DBNull.Value ? Convert.ToSingle(reader["prix"]) : 0f,
-                                Page = reader["page"] != DBNull.Value ? Convert.ToInt32(reader["page"]) : 0,
-                                Lu = Convert.ToInt32(reader["Lu"]),
-                                Encours = Convert.ToInt32(reader["Encours"]),
-                                Whishlist = Convert.ToInt32(reader["Whishlist"]),
-                                MesLivres = Convert.ToInt32(reader["MesLivres"]),
-                                ALire = Convert.ToInt32(reader["ALire"])
-                            });
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Erreur lors du chargement des données : {ex.Message}");
-            }
-        }
-
-
     }
 
 }

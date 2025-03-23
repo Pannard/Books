@@ -144,6 +144,93 @@
           }
         }
       },
+      "Syncfusion.Data.WPF/28.2.12": {
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.Data.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/28.2.12": {
+        "runtime": {
+          "lib/net8.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.SfGrid.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Data.WPF": "28.2.12",
+          "Syncfusion.Licensing": "28.2.12",
+          "Syncfusion.Shared.WPF": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfGrid.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.SfInput.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Licensing": "28.2.12",
+          "Syncfusion.Shared.WPF": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfInput.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.SfSkinManager.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Licensing": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.SfSkinManager.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Licensing": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.Themes.FluentDark.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Licensing": "28.2.12",
+          "Syncfusion.SfSkinManager.WPF": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.Themes.FluentDark.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
+      "Syncfusion.Themes.FluentLight.WPF/28.2.12": {
+        "dependencies": {
+          "Syncfusion.Licensing": "28.2.12",
+          "Syncfusion.SfSkinManager.WPF": "28.2.12"
+        },
+        "runtime": {
+          "lib/net8.0-windows7.0/Syncfusion.Themes.FluentLight.WPF.dll": {
+            "assemblyVersion": "28.2.12.0",
+            "fileVersion": "28.2.12.0"
+          }
+        }
+      },
       "System.CodeDom/4.7.0": {
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {
@@ -415,6 +502,62 @@
       "sha512": "sha512-dI7ngiCNgdm+n00nQvFTa+LbHvE9MIQXwMSLRzJI/KAJ7G1WmCachsvfE1CD6xvb3OXJvYYEfv3+S/LHyhN0Rg==",
       "path": "stub.system.data.sqlite.core.netstandard/1.0.119",
       "hashPath": "stub.system.data.sqlite.core.netstandard.1.0.119.nupkg.sha512"
+    },
+    "Syncfusion.Data.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZP95f/FJaJ+CDHdAdR5fUCQb7UU+hofa0Yl1UQWR/aq5GnGTB8V5pTRsVo6q18f1BAljmRpKyf50bHEIfv9uuQ==",
+      "path": "syncfusion.data.wpf/28.2.12",
+      "hashPath": "syncfusion.data.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CLZN5FD4EyEYPSOaffN6VEc8Fq7WDRwx7aV+cA70blPR3NtubozyJEy2T7qWaLesECWGypR4d9ZkouUEa0n5oQ==",
+      "path": "syncfusion.licensing/28.2.12",
+      "hashPath": "syncfusion.licensing.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.SfGrid.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ocZdtjDR64/WO/5+X4HeQ3/vhJEFOfmv14UjyXC1PucU5Ws15h8egzE3TMoAyBo97QHdOU39OwhY1pQ4XG3ioA==",
+      "path": "syncfusion.sfgrid.wpf/28.2.12",
+      "hashPath": "syncfusion.sfgrid.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.SfInput.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LptDOvF10+xHwOQaspUPpTuG6dsEkzvQ35K/wL6HzWC4/yfAc9iKHfthBC6do/qFDLhE9rukrezwrVvOYu396w==",
+      "path": "syncfusion.sfinput.wpf/28.2.12",
+      "hashPath": "syncfusion.sfinput.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.SfSkinManager.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HS/OwkRx7HyX8WXc18QEWb/88Vzpags9hbMGFbILxo0cDMVLXI7XBUpLUBK8Jii9Jra8D2gKN1jBSVEWJniPkA==",
+      "path": "syncfusion.sfskinmanager.wpf/28.2.12",
+      "hashPath": "syncfusion.sfskinmanager.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ylVpgHiQfRNMfW79w1yMwgwMtDWtIS4uiE1AMOIAwz/LQ5wWkUy/N12u8DXbHXDzeXJTkqvhyZC4CalF6kdNcA==",
+      "path": "syncfusion.shared.wpf/28.2.12",
+      "hashPath": "syncfusion.shared.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.Themes.FluentDark.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LpKOpvnvSJbA90YCJDY3Owh8clCTpkaSg2aC8x1FTcJdvGWKCfsSBqir8nIFxjejWyxghZLrYU9QEymemrGr5g==",
+      "path": "syncfusion.themes.fluentdark.wpf/28.2.12",
+      "hashPath": "syncfusion.themes.fluentdark.wpf.28.2.12.nupkg.sha512"
+    },
+    "Syncfusion.Themes.FluentLight.WPF/28.2.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DNLn1ZjJ2Of7A4+ILAvFhZ4dyy5yBy7WufdXW36pGQWiT1uRMZAr/pr6Sa00vpUCO5aFNa80gDc5ycq8EfQj3w==",
+      "path": "syncfusion.themes.fluentlight.wpf/28.2.12",
+      "hashPath": "syncfusion.themes.fluentlight.wpf.28.2.12.nupkg.sha512"
     },
     "System.CodeDom/4.7.0": {
       "type": "package",

@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:Books.MVVM.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BibliothequesPage">
+      Title="BibliothequesPage"
+      xmlns:syncfusionskin="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"                    
+syncfusionskin:SfSkinManager.VisualStyle="FluentDark">
 
     <Grid>
 

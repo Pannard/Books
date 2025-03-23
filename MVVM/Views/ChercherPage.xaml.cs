@@ -27,6 +27,7 @@ namespace Books.MVVM.Views
             this.DataContext = new MainViewModel();
         }
 
+
         
     }
 }
