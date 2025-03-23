@@ -1,0 +1,30 @@
+﻿<Window x:Class="Books.MVVM.Views.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Books.MVVM.Views"
+        Title="Library" Height="450" Width="800">
+
+    <Grid>
+
+        <!-- Définir deux colonnes et trois lignes pour une mise en page plus flexible -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <!-- Définir la DataGrid pour afficher les livres -->
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" VerticalAlignment="Center" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+            <Button Content="Chercher" Width="Auto" Height="30"  Margin="0,0,200,0" Click="ChercherClickPage"/>
+            <Button Content="Bibliothèques" Width="Auto" Height="30" Click="BibliothequesClickPage" />
+        </StackPanel>
+
+
+        <Frame x:Name="Page" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" NavigationUIVisibility="Hidden" />
+    </Grid>
+</Window>
