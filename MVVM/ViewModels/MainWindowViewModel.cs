@@ -28,6 +28,7 @@ namespace Books.MVVM.ViewModels
 
         private Book selectedBook;
         public Book SelectedBook
+
         {
             get => selectedBook;
             set
