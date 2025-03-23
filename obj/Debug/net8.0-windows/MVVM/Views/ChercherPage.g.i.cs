@@ -61,7 +61,7 @@ namespace Books.MVVM.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Books;V1.0.0.0;component/mvvm/views/chercherpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Books;component/mvvm/views/chercherpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\Views\ChercherPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

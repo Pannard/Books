@@ -111,9 +111,9 @@ namespace Books.MVVM.ViewModels
         public MainViewModel()
         {
             Books = new ObservableCollection<Book>();
-            MesLivresBooks = new ObservableCollection<Book>();
+            
             AddedBooks = new ObservableCollection<Book>();
-
+            MesLivresBooks = new ObservableCollection<Book>();
             OnClickSearch = new RelayCommand(OnClickSearchCommand, CanExecuteAddBook);
 
             LoadData();
